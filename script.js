@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2500);
     }
 
-    // FORMULARIO ENCUESTA
+    // FORMULARIO
     const form = document.getElementById("formEncuesta");
     const listaComentarios = document.getElementById("listaComentarios");
 
@@ -20,18 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         e.preventDefault();
 
-        if (!form.checkValidity()) {
-            mostrarToast("Completa todos los campos correctamente ❌");
-            return;
-        }
-
         // OBTENER DATOS
         const nombre = document.getElementById("nombre").value;
         const apellido = document.getElementById("apellido").value;
-        const edad = document.getElementById("edad").value;
-
-        const compra = form.querySelectorAll("select")[0].value;
-        const opinion = form.querySelector("textarea").value;
+        const opinion = document.getElementById("opinion").value;
 
         // CREAR TARJETA
         const card = document.createElement("div");
@@ -39,16 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = `
             <h3>${nombre} ${apellido}</h3>
-            <p><strong>Edad:</strong> ${edad} años</p>
-            <p><strong>Compra frecuente:</strong> ${compra}</p>
             <p>"${opinion}"</p>
         `;
 
-        // AGREGAR COMENTARIO
+        // AGREGAR TARJETA
         listaComentarios.appendChild(card);
 
         mostrarToast("¡Gracias por tu opinión! ✅");
 
+        // LIMPIAR
         form.reset();
     });
 
