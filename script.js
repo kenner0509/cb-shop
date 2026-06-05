@@ -80,5 +80,3 @@ document.addEventListener("DOMContentLoaded", () => {
 function cerrarCarrito(){
     document.getElementById("cartPanel").classList.remove("active");
 }
-```
-
